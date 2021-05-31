@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Contact from '../Contact'
 import { Component } from 'react';
 import {fetchContacts} from '../../redux/contacts/contacts-operations'
+import selectors  from '../../redux/contacts/contacts-selectors'
 class ContactList extends Component  {
     componentDidMount(){
         this.props.getContacts()
@@ -21,11 +22,9 @@ class ContactList extends Component  {
         );
     }
 };
-const filterContacts= (contactsList, query) => {
- return contactsList.filter(({name}) => name.toLowerCase().includes(query.toLowerCase()))
-}
+
 const mapStateToProps = (state) => ({
-    contacts: filterContacts(state.contacts.items, state.contacts.filter)
+    contacts: selectors.getFilteredContact(state) 
   });
 const mapDispatchToProps = dispatch =>({
     getContacts: ()=> dispatch(fetchContacts())

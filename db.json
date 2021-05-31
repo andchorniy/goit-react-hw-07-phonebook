@@ -1,3 +1,19 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "name": "andrii chornyi",
+      "number": "+380640895",
+      "id": 1
+    },
+    {
+      "name": "Andrii",
+      "number": "+380640895",
+      "id": 2
+    },
+    {
+      "name": "Rosie Simpson",
+      "number": "489465",
+      "id": 3
+    }
+  ]
 }

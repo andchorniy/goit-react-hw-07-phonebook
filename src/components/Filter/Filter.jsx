@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import style from './Filter.module.css'
 import changeFilter from '../../redux/filter/filter-action'
+import selector from '../../redux/contacts/contacts-selectors'
 const Filter = ({filter, handleChange}) => {
     return (
         <div>
@@ -13,7 +14,7 @@ const Filter = ({filter, handleChange}) => {
     );
 };
 const mapStateToProps=(state)=>({
-    filter: state.filter
+    filter: selector.getFilter(state)
 })
 const mapDispatchToProps = dispatch => ({
     handleChange: (e)=> dispatch(changeFilter(e.target.value.trim()))
